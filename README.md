@@ -59,4 +59,5 @@ Quando sua branch estiver pronta, seja por terminar de consertar um bug, termina
 ## Documentação
 
 [Documentação do Angular](https://angular.dev/overview)
+
 [Documentação do TypeScript](https://www.typescriptlang.org/docs/)
