@@ -61,3 +61,5 @@ Quando sua branch estiver pronta, seja por terminar de consertar um bug, termina
 [Documentação do Angular](https://angular.dev/overview)
 
 [Documentação do TypeScript](https://www.typescriptlang.org/docs/)
+
+[Documentação do Tailwind CSS](https://tailwindcss.com/docs/styling-with-utility-classes)
