@@ -1,59 +1,62 @@
 # UnivaliProjWeb
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 22.1.8.
+Interface web (SPA) para o projeto de extensão da disciplina Programação Web da Universidade do Vale do Itajaí. Desenvolvido usando Angular 22.1 e Tailwind CSS.
 
-## Development server
+## Desenvolvimento
 
-To start a local development server, run:
+Um passo-a-passo para as várias ferramentas usadas no desenvolvimento do projeto.
 
-```bash
-ng serve
-```
+### Dependências
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+Requer [Node.js](https://nodejs.org/en/download) para iniciar o servidor e atualizar dependências.
+Requer [Git](https://git-scm.com/install/) para atualizar suas mudanças.
 
-## Code scaffolding
+### Colaboração
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+Criar uma [issue](https://github.com/univali-proj/univali-proj-web/issues) quando é preciso consertar um bug, adicionar novas features, etc. A partir disso, você pode criar uma branch a partir da issue criada.
 
-```bash
-ng generate component component-name
-```
+Para visualizar sua nova branch, use `git fetch origin`, e então `git switch <nome-da-sua-branch>`.
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+Para mudanças, use `git add <nome-do-arquivo-mudado>`, ou `git add .` para todos os arquivos. Uma vez que os arquivos estejam na fila, use `git commit -m "<mensagem-curta-do-que-mudou>"`. 
 
-```bash
-ng generate --help
-```
+Caso tenha usado em um arquivo errado ou acidentalmente, use `git restore --staged <nome-do-arquivo-errado>`. Isso não vai reverter suas mudanças locais, apenas não vai mandá-lo para o commit.
 
-## Building
+Commits ficam salvos apenas localmente. Para atualizar o repositório com um ou múltiplos commits, use `git push origin <nome-da-sua-branch>`, ou apenas `git push` caso já esteja na sua branch localmente.
 
-To build the project run:
+**Cuidado com git push**. Certifique-se que está de fato na sua branch (`git branch` para verificar). Push diretamente na main pode causar problemas.
+
+É geralmente uma boa ideia, no início do desenvolvimento, usar `git fetch origin` para verificar se houve mudanças na branch principal. Caso existam:
 
 ```bash
-ng build
+git switch main
+git pull
+git switch <nome-da-sua-branch>
+git rebase origin/main
 ```
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+### Iniciando o servidor localmente
 
-## Running unit tests
-
-To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use the following command:
+Para sincronizar seu computador com as dependências do projeto, use:
 
 ```bash
-ng test
+npm install
 ```
 
-## Running end-to-end tests
+Isso certifica que sua máquina local está sincronizada com o `package-lock.json`. 
 
-For end-to-end (e2e) testing, run:
+Para iniciar o servidor de desenvolvimento local, use:
 
 ```bash
-ng e2e
+npx ng serve
 ```
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+Quando o servidor estiver rodando, pode usar qualquer browser para navegar para `http://localhost:4200`. A aplicação vai recarregar automaticamente quando você modificar algum arquivo.
 
-## Additional Resources
+### Pull Request
 
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+Quando sua branch estiver pronta, seja por terminar de consertar um bug, terminar uma feature, etc use um [Pull Request](https://github.com/univali-proj/univali-proj-web/pulls) para pedir integração com a branch principal. Isso garante que a branch principal não receba várias mudanças de uma só vez.
+
+## Documentação
+
+[Documentação do Angular](https://angular.dev/overview)
+[Documentação do TypeScript](https://www.typescriptlang.org/docs/)
