@@ -63,3 +63,7 @@ Quando sua branch estiver pronta, seja por terminar de consertar um bug, termina
 [Documentação do TypeScript](https://www.typescriptlang.org/docs/)
 
 [Documentação do Tailwind CSS](https://tailwindcss.com/docs/styling-with-utility-classes)
+
+[Documentação do Ng-Icons](https://ng-icons.github.io/ng-icons/docs/introduction)
+
+[Ícones (Material Symbols)](https://ng-icons.github.io/ng-icons/browse?sets=material-symbols)
