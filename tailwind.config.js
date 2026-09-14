@@ -41,3 +41,5 @@ module.exports = {
   },
   plugins: [],
 };
+
+/* Todo: Conferir se essas configs estão sendo implementadas na versão 4 do Tailwind */
