@@ -3,7 +3,7 @@
 <header #header class="site-header" [class.header-hidden]="headerHidden()" (focusin)="revealHeader()">
   <div class="page-width header-inner">
     <a class="business-name" href="#inicio" (click)="closeMenu()" aria-label="Confitto — início">
-      Confitto
+      <img src="logotr.png" alt="" />
     </a>
     <button #menuButton class="menu-toggle" type="button" [attr.aria-expanded]="menuOpen()"
       aria-controls="section-navigation" [attr.aria-label]="menuOpen() ? 'Fechar menu' : 'Abrir menu'"
