@@ -16,6 +16,8 @@
   border-bottom: 1px solid theme('colors.line.subtle');
   background: theme('colors.canvas');
   transition: transform 240ms ease;
+  padding-top: 4px;
+  padding-bottom: 4px;
 }
 
 .header-hidden {
@@ -33,16 +35,19 @@ nav,
 }
 
 .header-inner {
-  min-height: 5rem;
+  --header-height: 5rem;
+  min-height: var(--header-height);
   justify-content: space-between;
   gap: 2rem;
 }
+.business-name img {
+  display: block;
+  height: var(--header-height);
+}
 
-.business-name,
 .footer-name {
   font-size: 1.5rem;
   font-weight: 600;
-  letter-spacing: -0.025em;
 }
 
 nav {
@@ -90,9 +95,13 @@ nav a:hover,
 .eyebrow {
   margin-bottom: 1.25rem;
   font-size: 0.75rem;
-  font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.18em;
+}
+
+.eyebrow,
+.step-number {
+  font-weight: 600;
   color: theme('colors.ink.tertiary');
 }
 
@@ -135,7 +144,6 @@ h3 {
 }
 
 ng-icon {
-  flex-shrink: 0;
   font-size: 1.25rem;
 }
 
@@ -157,7 +165,6 @@ ng-icon {
 }
 
 .placeholder-number {
-  margin-bottom: 1rem;
   font-size: 3rem;
   color: theme('colors.ink.muted');
 }
@@ -223,7 +230,6 @@ ng-icon {
 .about-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  align-items: start;
   gap: 5rem;
 }
 
@@ -236,8 +242,6 @@ ng-icon {
   display: block;
   margin-bottom: 1.5rem;
   font-size: 0.875rem;
-  font-weight: 600;
-  color: theme('colors.ink.tertiary');
 }
 
 .contact-panel {
@@ -262,7 +266,7 @@ ng-icon {
 
 @media (max-width: 1023px) {
   .header-inner {
-    min-height: 4.5rem;
+    --header-height: 4.5rem;
     flex-wrap: wrap;
     gap: 0;
   }
@@ -286,7 +290,6 @@ ng-icon {
   }
 
   nav a {
-    min-height: 2.75rem;
     padding-block: 0.75rem;
   }
 }
