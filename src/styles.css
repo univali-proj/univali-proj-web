@@ -111,6 +111,9 @@ textarea.field {
 .field-error {
   font-size: 0.875rem;
 }
+.field-hint {
+  color: theme('colors.ink.muted');
+}
 .field-error {
   font-weight: 600;
 }
