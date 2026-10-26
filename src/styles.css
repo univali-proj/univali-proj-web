@@ -68,15 +68,61 @@ a:hover {
 .skip-link:focus {
   transform: translateY(0);
 }
-:where(a, button, input, textarea, select):focus-visible {
+.eyebrow {
+  margin-bottom: 1.25rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: theme('colors.ink.tertiary');
+}
+.description {
+  margin-top: 1.5rem;
+  max-width: 32rem;
+  line-height: 2;
+}
+.field {
+  display: block;
+  width: 100%;
+  min-height: 3rem;
+  padding: 0.75rem 1rem;
+  border: 1px solid theme('colors.line.strong');
+  border-radius: 0.375rem;
+  background: theme('colors.canvas');
+  color: theme('colors.ink.DEFAULT');
+  font-size: 1rem;
+  line-height: 1.5;
+}
+textarea.field {
+  min-height: 8rem;
+  resize: vertical;
+}
+.field[aria-invalid='true'] {
+  border-color: theme('colors.danger');
+}
+.field-group {
+  display: grid;
+  gap: 0.5rem;
+}
+.field-label {
+  font-weight: 600;
+}
+.field-hint,
+.field-error {
+  font-size: 0.875rem;
+}
+.field-error {
+  font-weight: 600;
+}
+:where(a, button):focus-visible {
   outline: 2px solid var(--color-ink, #36090b);
   outline-offset: 4px;
   box-shadow: 0 0 0 6px #ff669a55;
 }
-:where(input, textarea, select):focus {
-  border-color: #ff669a;
-  outline: 2px solid #ff669a55;
-  outline-offset: 2px;
+.field:focus {
+  border-color: theme('colors.brand.600');
+  outline: 1px solid theme('colors.brand.600');
+  outline-offset: 0;
 }
 @media (prefers-reduced-motion: reduce) {
   html {

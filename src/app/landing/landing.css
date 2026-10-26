@@ -28,7 +28,6 @@
 nav,
 .actions,
 .section-heading,
-.contact-panel,
 .site-footer {
   display: flex;
   align-items: center;
@@ -92,14 +91,6 @@ nav a:hover,
   min-height: min(48rem, calc(100svh - 5rem));
 }
 
-.eyebrow {
-  margin-bottom: 1.25rem;
-  font-size: 0.75rem;
-  text-transform: uppercase;
-  letter-spacing: 0.18em;
-}
-
-.eyebrow,
 .step-number {
   font-weight: 600;
   color: theme('colors.ink.tertiary');
@@ -129,12 +120,6 @@ h2 {
 h3 {
   font-size: 1.25rem;
   letter-spacing: -0.025em;
-}
-
-.description {
-  margin-top: 1.5rem;
-  max-width: 32rem;
-  line-height: 2;
 }
 
 .actions {
@@ -245,15 +230,25 @@ ng-icon {
 }
 
 .contact-panel {
-  justify-content: space-between;
-  gap: 2.5rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem 4rem;
   padding: 3rem;
   border-radius: 0.375rem;
   background: theme('colors.secondary.600');
 }
 
-.contact-panel .btn-secondary {
-  flex-shrink: 0;
+.contact-heading {
+  grid-column: 1 / -1;
+}
+
+.contact-panel .description {
+  margin-top: 0;
+}
+
+.contact-panel button {
+  grid-column: -2;
+  justify-self: end;
   border-color: theme('colors.ink.DEFAULT');
 }
 
@@ -329,9 +324,7 @@ ng-icon {
   }
 
   .contact-panel {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 2rem;
+    grid-template-columns: 1fr;
     padding: 1.75rem;
   }
 }
