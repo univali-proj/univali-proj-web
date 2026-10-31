@@ -1,29 +1,18 @@
 <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
 
-<header
-  #header
-  class="site-header"
-  [class.header-hidden]="headerHidden()"
-  (focusin)="revealHeader()"
->
+<header #header class="site-header" [class.header-hidden]="headerHidden()" (focusin)="revealHeader()">
   <div class="page-width header-inner">
     <a class="business-name" href="#inicio" (click)="closeMenu()" aria-label="Confitto — início">
       <img src="logotr.png" alt="" />
     </a>
-    <button
-      #menuButton
-      class="menu-toggle"
-      type="button"
-      [attr.aria-expanded]="menuOpen()"
-      aria-controls="section-navigation"
-      [attr.aria-label]="menuOpen() ? 'Fechar menu' : 'Abrir menu'"
-      (click)="toggleMenu()"
-    >
+    <button #menuButton class="menu-toggle" type="button" [attr.aria-expanded]="menuOpen()"
+      aria-controls="section-navigation" [attr.aria-label]="menuOpen() ? 'Fechar menu' : 'Abrir menu'"
+      (click)="toggleMenu()">
       <ng-icon [name]="menuOpen() ? 'matCloseRound' : 'matMenuRound'" aria-hidden="true" />
     </button>
     <nav id="section-navigation" aria-label="Seções da página" [class.menu-open]="menuOpen()">
       @for (item of navigation; track item.id) {
-        <a [href]="'#' + item.id" (click)="closeMenu()">{{ item.label }}</a>
+      <a [href]="'#' + item.id" (click)="closeMenu()">{{ item.label }}</a>
       }
     </nav>
   </div>
@@ -46,11 +35,7 @@
         <a class="text-link" href="#sobre">Conheça a Confitto</a>
       </div>
     </div>
-    <div
-      class="image-placeholder hero-image"
-      role="img"
-      aria-label="Espaço reservado para foto de um bolo artesanal"
-    >
+    <div class="image-placeholder hero-image" role="img" aria-label="Espaço reservado para foto de um bolo artesanal">
       <span class="placeholder-number" aria-hidden="true">01</span>
       <span>Foto de bolo artesanal</span>
       <span>Imagem a adicionar</span>
@@ -67,21 +52,18 @@
       </div>
       <div class="product-grid">
         @for (preview of previews; track preview) {
-          <article class="product-card">
-            <div
-              class="image-placeholder product-image"
-              role="img"
-              [attr.aria-label]="'Espaço reservado para foto de bolo ' + preview"
-            >
-              <span class="placeholder-number" aria-hidden="true">{{ preview }}</span>
-              <span>Foto de bolo</span>
-              <span>Imagem a adicionar</span>
-            </div>
-            <div class="product-copy">
-              <h3>Lorem ipsum</h3>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-            </div>
-          </article>
+        <article class="product-card">
+          <div class="image-placeholder product-image" role="img"
+            [attr.aria-label]="'Espaço reservado para foto de bolo ' + preview">
+            <span class="placeholder-number" aria-hidden="true">{{ preview }}</span>
+            <span>Foto de bolo</span>
+            <span>Imagem a adicionar</span>
+          </div>
+          <div class="product-copy">
+            <h3>Lorem ipsum</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+          </div>
+        </article>
         }
       </div>
       <div class="section-action">
@@ -127,11 +109,11 @@
       </div>
       <ol class="steps-grid">
         @for (step of steps; track step) {
-          <li class="order-step">
-            <span class="step-number" aria-hidden="true">{{ step }}</span>
-            <h3>Lorem ipsum</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor.</p>
-          </li>
+        <li class="order-step">
+          <span class="step-number" aria-hidden="true">{{ step }}</span>
+          <h3>Lorem ipsum</h3>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor.</p>
+        </li>
         }
       </ol>
     </div>
@@ -144,28 +126,20 @@
         <h2 id="contact-title">Fale com a Confitto</h2>
       </div>
       <div class="description">
-        <p>Tem dúvidas, quer conhecer nossas sobremesas ou fazer uma encomenda? Envie sua mensagem com os detalhes do que procura e retornaremos para ajudar.</p>
+        <p>Tem dúvidas, quer conhecer nossas sobremesas ou fazer uma encomenda? Envie sua mensagem com os detalhes do
+          que procura e retornaremos para ajudar.</p>
       </div>
       <div class="field-group">
         <label class="field-label" for="contact-message">Sua mensagem</label>
-        <textarea
-          #contactField
-          id="contact-message"
-          class="field"
-          name="message"
-          rows="5"
-          required
-          [value]="contactMessage()"
-          [attr.aria-invalid]="contactError() ? 'true' : null"
-          aria-describedby="contact-hint contact-error"
-          (input)="updateContactMessage(contactField.value)"
-        ></textarea>
+        <textarea #contactField id="contact-message" class="field" name="message" rows="5" required
+          [value]="contactMessage()" [attr.aria-invalid]="contactError() ? 'true' : null"
+          aria-describedby="contact-hint contact-error" (input)="updateContactMessage(contactField.value)"></textarea>
         <p id="contact-hint" class="field-hint">
           Você será direcionado ao WhatsApp para concluir o envio.
         </p>
         <p id="contact-error" class="field-error" aria-live="polite">
           @if (contactError()) {
-            Escreva uma mensagem antes de enviar.
+          Escreva uma mensagem antes de enviar.
           }
         </p>
       </div>
