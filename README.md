@@ -58,16 +58,6 @@ Quando sua branch estiver pronta, seja por terminar de consertar um bug, termina
 
 ## Documentação
 
-### Landing page da Confitto
-
-A rota inicial contém a landing page, incluindo seu próprio cabeçalho e navegação por seções.
-O cabeçalho se recolhe ao rolar para baixo e reaparece ao rolar para cima; permanece visível
-com o menu aberto ou foco de teclado. A preferência por movimento reduzido é respeitada.
-
-Os textos descritivos são provisórios (lorem ipsum). Os quatro espaços de imagem aguardam
-uma foto de destaque e três fotos de produtos. Não há logotipo, catálogo, formulário ou integração
-com a API. Os botões de produtos e contato chamam métodos vazios intencionalmente.
-
 A paleta fica em `tailwind.config.js`, carregada pelo CSS global com `@config`.
 `brand-600` preserva `#FF669A` nos detalhes; botões usam bege e texto marrom para manter o contraste.
 Ícones devem ser importados e registrados em `src/app/shared/ui/icons.ts`.
