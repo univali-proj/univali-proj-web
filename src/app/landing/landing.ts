@@ -29,8 +29,16 @@ export class Landing {
     { id: 'encomendas', label: 'Como encomendar' },
     { id: 'contato', label: 'Contato' },
   ];
-  protected readonly previews = ['01', '02', '03'];
-  protected readonly steps = ['01', '02', '03'];
+  protected readonly previews = [
+    { title: 'Escolha o sabor do bolo', image: 'hero2.jpg', description: 'Tradicionais ou especiais; ninho, prestígio, nutella e muito mais.' },
+    { title: 'Deixe seu bolo mais lindo', image: 'hero3.jpg', description: 'Adicione flores, letras, papel de arroz e outras decorações.' },
+    { title: 'Docinhos para completar', image: 'hero4.jpg', description: 'Brigadeiros, beijinho, leite ninho e outros acompanhamentos.' },
+  ];
+  protected readonly steps = [
+    { title: 'Entregas', description: 'Temos opção de entrega ou retirada em nosso endereço em Camboriú, bairro Santa Regina. Em pedidos para domingo, a entrega será feita no sábado.'  },
+    { title: 'Pagamentos', description: 'Aceitamos PIX, cartão de crédito ou débito via link. O pedido só será efetuado com o pagamento integral do valor no dia da reserva da data.' },
+    { title: 'Cancelamentos', description: 'O valor é devolvido 100% para pedidos cancelados até 7 dias antes da entrega e 50% para pedidos até 4 dias antes da entrega.' },
+  ];
 
   @HostListener('window:scroll')
   protected onScroll(): void {

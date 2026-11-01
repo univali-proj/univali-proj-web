@@ -35,10 +35,8 @@
         <a class="text-link" href="#sobre">Conheça a Confitto</a>
       </div>
     </div>
-    <div class="image-placeholder hero-image" role="img" aria-label="Espaço reservado para foto de um bolo artesanal">
-      <span class="placeholder-number" aria-hidden="true">01</span>
-      <span>Foto de bolo artesanal</span>
-      <span>Imagem a adicionar</span>
+    <div class="image-frame hero-image">
+      <img src="hero1.jpg" alt="Bolo artesanal da Confitto" />
     </div>
   </section>
 
@@ -51,17 +49,14 @@
         </div>
       </div>
       <div class="product-grid">
-        @for (preview of previews; track preview) {
+        @for (preview of previews; track preview.image) {
         <article class="product-card">
-          <div class="image-placeholder product-image" role="img"
-            [attr.aria-label]="'Espaço reservado para foto de bolo ' + preview">
-            <span class="placeholder-number" aria-hidden="true">{{ preview }}</span>
-            <span>Foto de bolo</span>
-            <span>Imagem a adicionar</span>
+          <div class="image-frame product-image">
+            <img [src]="preview.image" alt="" loading="lazy" />
           </div>
           <div class="product-copy">
-            <h3>Lorem ipsum</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            <h3>{{ preview.title }}</h3>
+            <p>{{ preview.description }}</p>
           </div>
         </article>
         }
@@ -104,15 +99,14 @@
           <h2 id="orders-title">Sua encomenda</h2>
         </div>
         <p class="description">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut enim ad minim veniam.
+          Feitas com pelo menos 5 dias de antecedência, agendados com data e hora a ser combinado.
         </p>
       </div>
       <ol class="steps-grid">
         @for (step of steps; track step) {
         <li class="order-step">
-          <span class="step-number" aria-hidden="true">{{ step }}</span>
-          <h3>Lorem ipsum</h3>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor.</p>
+          <h3>{{ step.title }}</h3>
+          <p>{{ step.description }}</p>
         </li>
         }
       </ol>
@@ -126,8 +120,10 @@
         <h2 id="contact-title">Fale com a Confitto</h2>
       </div>
       <div class="description">
-        <p>Tem dúvidas, quer conhecer nossas sobremesas ou fazer uma encomenda? Envie sua mensagem com os detalhes do
-          que procura e retornaremos para ajudar.</p>
+        <p>
+          Tem dúvidas, quer conhecer nossas sobremesas ou fazer uma encomenda? Envie sua mensagem
+          com os detalhes do que procura e retornaremos para ajudar.
+        </p>
       </div>
       <div class="field-group">
         <label class="field-label" for="contact-message">Sua mensagem</label>
