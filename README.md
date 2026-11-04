@@ -58,6 +58,10 @@ Quando sua branch estiver pronta, seja por terminar de consertar um bug, termina
 
 ## Documentação
 
+A paleta fica em `tailwind.config.js`, carregada pelo CSS global com `@config`.
+`brand-600` preserva `#FF669A` nos detalhes; botões usam bege e texto marrom para manter o contraste.
+Ícones devem ser importados e registrados em `src/app/shared/ui/icons.ts`.
+
 [Documentação do Angular](https://angular.dev/overview)
 
 [Documentação do TypeScript](https://www.typescriptlang.org/docs/)
