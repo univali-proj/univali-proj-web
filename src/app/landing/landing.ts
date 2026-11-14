@@ -14,6 +14,8 @@ export class Landing {
   private readonly header = viewChild<ElementRef<HTMLElement>>('header');
   private readonly menuButton = viewChild<ElementRef<HTMLButtonElement>>('menuButton');
   private readonly contactField = viewChild<ElementRef<HTMLTextAreaElement>>('contactField');
+  private readonly userField = viewChild<ElementRef<HTMLTextAreaElement>>('userField');
+  private readonly passwordField = viewChild<ElementRef<HTMLTextAreaElement>>('passwordField');
   private lastScrollPosition = 0;
   private scrollDirection = 0;
   private scrollDistance = 0;
@@ -28,6 +30,7 @@ export class Landing {
     { id: 'sobre', label: 'Sobre a Confitto' },
     { id: 'encomendas', label: 'Como encomendar' },
     { id: 'contato', label: 'Contato' },
+    { id: 'login', label: 'Login' }
   ];
   protected readonly previews = [
     { title: 'Escolha o sabor do bolo', image: 'hero2.jpg', description: 'Tradicionais ou especiais; ninho, prestígio, nutella e muito mais.' },
