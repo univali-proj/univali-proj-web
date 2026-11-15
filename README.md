@@ -107,6 +107,37 @@ A paleta fica em `tailwind.config.js`, carregada pelo CSS global com `@config`.
 `brand-600` preserva `#FF669A` nos detalhes; botões usam bege e texto marrom para manter o contraste.
 Ícones devem ser importados e registrados em `src/app/shared/ui/icons.ts`.
 
+### Layout da aplicação
+
+`MainLayout`, em `src/app/shared/ui/main-layout/main-layout.ts`, é independente da página
+inicial. Ele recebe uma lista de itens da sidebar e projeta o conteúdo do componente que o utiliza.
+No desktop, a sidebar permanece visível; no celular, o botão de menu abre uma gaveta.
+O layout não inclui cabeçalho nem cria rotas.
+
+```typescript
+import { Component } from '@angular/core';
+import { MainLayout, SidebarItem } from './shared/ui/main-layout/main-layout';
+
+@Component({
+  imports: [MainLayout],
+  template: `
+    <app-main-layout [items]="navigation">
+      <h1>Minha conta</h1>
+    </app-main-layout>
+  `,
+})
+export class AccountPage {
+  readonly navigation: readonly SidebarItem[] = [
+    { type: 'section', label: 'Minha conta' },
+    { type: 'link', label: 'Configurações', route: '/configuracoes', icon: 'matMenuRound', exact: true },
+  ];
+}
+```
+
+Os caminhos do exemplo devem corresponder às rotas da aplicação. Os ícones são opcionais e devem
+estar registrados em `ICONS`. Use `exact: true` para destacar um link somente na rota exata;
+por padrão, rotas filhas também mantêm o link destacado.
+
 [Documentação do Angular](https://angular.dev/overview)
 
 [Documentação do TypeScript](https://www.typescriptlang.org/docs/)
