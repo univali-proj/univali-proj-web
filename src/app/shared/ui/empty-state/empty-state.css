@@ -1,0 +1,26 @@
+@reference '../../../../styles.css';
+
+:host {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  padding: 3rem 1.5rem;
+  text-align: center;
+}
+
+ng-icon {
+  flex: none;
+  color: theme('colors.brand.700');
+  font-size: 3rem;
+}
+
+p {
+  max-width: 28rem;
+  margin: 0;
+  color: theme('colors.brand.800');
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 1.75;
+  overflow-wrap: anywhere;
+}

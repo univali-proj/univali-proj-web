@@ -1,0 +1,58 @@
+<ng-template #navigation>
+  <div class="sidebar-brand">
+    <img src="logotr.png" alt="Confitto" />
+  </div>
+
+  <nav class="sidebar-navigation" aria-label="Navegação principal">
+    @for (item of items(); track $index) {
+      @if (item.type === 'section') {
+        <p class="sidebar-section">{{ item.label }}</p>
+      } @else {
+        <a
+          class="sidebar-link"
+          [routerLink]="item.route"
+          routerLinkActive="sidebar-link-active"
+          [routerLinkActiveOptions]="{ exact: item.exact ?? false }"
+          ariaCurrentWhenActive="page"
+          (click)="drawerOpen() && closeDrawer()"
+        >
+          @if (item.icon) {
+            <ng-icon [name]="item.icon" aria-hidden="true" />
+          }
+          <span>{{ item.label }}</span>
+        </a>
+      }
+    }
+  </nav>
+</ng-template>
+
+<div class="layout">
+  <aside class="desktop-sidebar">
+    <ng-container [ngTemplateOutlet]="navigation" />
+  </aside>
+
+  <main class="layout-main">
+    <button
+      #menuButton
+      class="menu-button"
+      type="button"
+      aria-label="Abrir menu de navegação"
+      aria-haspopup="dialog"
+      [attr.aria-expanded]="drawerOpen()"
+      (click)="openDrawer()"
+    >
+      <ng-icon name="matMenuRound" aria-hidden="true" />
+    </button>
+    <ng-content />
+  </main>
+</div>
+
+<dialog #drawer class="drawer" aria-label="Menu de navegação" (close)="onDrawerClosed()" (keydown.escape)="closeDrawer(); $event.preventDefault()">
+  <button class="drawer-backdrop" type="button" tabindex="-1" aria-label="Fechar menu de navegação" (click)="closeDrawer()"></button>
+  <div class="drawer-panel">
+    <button class="drawer-close" type="button" aria-label="Fechar menu de navegação" autofocus (click)="closeDrawer()">
+      <ng-icon name="matCloseRound" aria-hidden="true" />
+    </button>
+    <ng-container [ngTemplateOutlet]="navigation" />
+  </div>
+</dialog>

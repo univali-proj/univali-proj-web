@@ -107,6 +107,77 @@ A paleta fica em `tailwind.config.js`, carregada pelo CSS global com `@config`.
 `brand-600` preserva `#FF669A` nos detalhes; botões usam bege e texto marrom para manter o contraste.
 Ícones devem ser importados e registrados em `src/app/shared/ui/icons.ts`.
 
+### Layout da aplicação
+
+`MainLayout`, em `src/app/shared/ui/main-layout/main-layout.ts`, é independente da página
+inicial. Ele recebe uma lista de itens da sidebar e projeta o conteúdo do componente que o utiliza.
+No desktop, a sidebar permanece visível; no celular, o botão de menu abre uma gaveta.
+O layout não inclui cabeçalho nem cria rotas.
+
+```typescript
+import { Component } from '@angular/core';
+import { MainLayout, SidebarItem } from './shared/ui/main-layout/main-layout';
+
+@Component({
+  imports: [MainLayout],
+  template: `
+    <app-main-layout [items]="navigation">
+      <h1>Minha conta</h1>
+    </app-main-layout>
+  `,
+})
+export class AccountPage {
+  readonly navigation: readonly SidebarItem[] = [
+    { type: 'section', label: 'Minha conta' },
+    { type: 'link', label: 'Configurações', route: '/configuracoes', icon: 'matMenuRound', exact: true },
+  ];
+}
+```
+
+Os caminhos do exemplo devem corresponder às rotas da aplicação. Os ícones são opcionais e devem
+estar registrados em `ICONS`. Use `exact: true` para destacar um link somente na rota exata;
+por padrão, rotas filhas também mantêm o link destacado.
+
+### Estado vazio
+
+Importe `EmptyState`, de `src/app/shared/ui/empty-state/empty-state.ts`, no componente que
+vai utilizá-lo e adicione-o à lista `imports`.
+
+```html
+<app-empty-state
+  icon="matSearchOffRound"
+  text="Nenhum resultado encontrado."
+/>
+```
+
+Os inputs `text` e `icon` são obrigatórios. O ícone deve estar registrado em `ICONS`.
+O componente centraliza o ícone acima do texto e usa os tons `brand-700` e `brand-800`
+para manter a identidade visual e a legibilidade no fundo claro.
+Quem o utiliza decide quando exibi-lo: somente após uma busca concluída com sucesso
+e uma lista vazia, não durante o carregamento ou em caso de erro.
+
+### Cabeçalho das páginas
+
+Importe `PageHeader`, de `src/app/shared/ui/page-header/page-header.ts`, e adicione-o à lista
+`imports` da página. Os inputs `title` e `description` são obrigatórios.
+O componente não é inserido automaticamente no layout e não altera o cabeçalho da landing page.
+
+```html
+<app-page-header
+  title="Produtos"
+  description="Gerencie os produtos disponíveis no catálogo."
+  primary-action-label="Novo produto"
+  primary-action-icon="matAddRound"
+  (primary-action)="openProductForm()"
+/>
+```
+
+O input opcional `primary-action-label` exibe o botão de ação quando preenchido.
+`primary-action-icon` também é opcional e aceita os ícones registrados em `ICONS`;
+quando informado, aparece antes do texto. `primary-action` é um **output**, não uma função
+recebida por input: vincule o evento ao método da página que deve executar a ação.
+Sem rótulo, o botão não é renderizado. Em telas estreitas, a ação aparece abaixo do texto.
+
 [Documentação do Angular](https://angular.dev/overview)
 
 [Documentação do TypeScript](https://www.typescriptlang.org/docs/)

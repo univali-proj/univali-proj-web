@@ -1,0 +1,67 @@
+@reference '../../../../styles.css';
+
+:host {
+  display: block;
+  margin-bottom: 2rem;
+}
+
+.page-header {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1.5rem;
+}
+
+.header-copy {
+  min-width: 0;
+}
+
+h1 {
+  margin: 0;
+  color: theme('colors.ink.primary');
+  font-size: clamp(1.75rem, 1.25rem + 1vw, 2.25rem);
+  font-weight: 700;
+  line-height: 1.25;
+  letter-spacing: -0.025em;
+  overflow-wrap: anywhere;
+}
+
+p {
+  max-width: 42rem;
+  margin: 0.625rem 0 0;
+  color: theme('colors.ink.tertiary');
+  font-size: 0.9375rem;
+  line-height: 1.75;
+  overflow-wrap: anywhere;
+}
+
+.header-action {
+  max-width: 100%;
+}
+
+.header-action ng-icon {
+  flex: none;
+  font-size: 1.25rem;
+}
+
+.header-action span {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+@media (min-width: 40rem) {
+  .page-header {
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+
+  .header-copy {
+    flex: 1 1 20rem;
+  }
+
+  .header-action {
+    flex: 0 0 auto;
+    margin-left: auto;
+  }
+}

@@ -1,7 +1,9 @@
 import {
+  matAddRound,
   matArrowForwardRound,
   matCloseRound,
   matMenuRound,
+  matSearchOffRound,
 } from '@ng-icons/material-symbols/round';
 
 /*
@@ -9,7 +11,9 @@ import {
     possa carregar em app.config.ts
 */
 export const ICONS = {
+  matAddRound,
   matArrowForwardRound,
   matCloseRound,
   matMenuRound,
+  matSearchOffRound,
 };
