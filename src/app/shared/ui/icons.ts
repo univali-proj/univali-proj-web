@@ -2,6 +2,7 @@ import {
   matArrowForwardRound,
   matCloseRound,
   matMenuRound,
+  matSearchOffRound,
 } from '@ng-icons/material-symbols/round';
 
 /*
@@ -12,4 +13,5 @@ export const ICONS = {
   matArrowForwardRound,
   matCloseRound,
   matMenuRound,
+  matSearchOffRound,
 };
