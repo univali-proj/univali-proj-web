@@ -138,6 +138,24 @@ Os caminhos do exemplo devem corresponder às rotas da aplicação. Os ícones s
 estar registrados em `ICONS`. Use `exact: true` para destacar um link somente na rota exata;
 por padrão, rotas filhas também mantêm o link destacado.
 
+### Estado vazio
+
+Importe `EmptyState`, de `src/app/shared/ui/empty-state/empty-state.ts`, no componente que
+vai utilizá-lo e adicione-o à lista `imports`.
+
+```html
+<app-empty-state
+  icon="matSearchOffRound"
+  text="Nenhum resultado encontrado."
+/>
+```
+
+Os inputs `text` e `icon` são obrigatórios. O ícone deve estar registrado em `ICONS`.
+O componente centraliza o ícone acima do texto e usa os tons `brand-700` e `brand-800`
+para manter a identidade visual e a legibilidade no fundo claro.
+Quem o utiliza decide quando exibi-lo: somente após uma busca concluída com sucesso
+e uma lista vazia, não durante o carregamento ou em caso de erro.
+
 [Documentação do Angular](https://angular.dev/overview)
 
 [Documentação do TypeScript](https://www.typescriptlang.org/docs/)
