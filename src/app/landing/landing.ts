@@ -10,7 +10,7 @@ import { environment } from '../../env/environment.local';
   styleUrl: './landing.css',
 })
 export class Landing {
-  private readonly document = inject(DOCUMENT);
+  protected readonly document = inject(DOCUMENT);
   private readonly header = viewChild<ElementRef<HTMLElement>>('header');
   private readonly menuButton = viewChild<ElementRef<HTMLButtonElement>>('menuButton');
   private readonly contactField = viewChild<ElementRef<HTMLTextAreaElement>>('contactField');
