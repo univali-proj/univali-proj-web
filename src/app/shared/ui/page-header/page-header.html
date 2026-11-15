@@ -1,0 +1,15 @@
+<header class="page-header">
+  <div class="header-copy">
+    <h1>{{ title() }}</h1>
+    <p>{{ description() }}</p>
+  </div>
+
+  @if (primaryActionLabel(); as label) {
+    <button class="btn-primary header-action" type="button" (click)="primaryAction.emit()">
+      @if (primaryActionIcon(); as icon) {
+        <ng-icon [name]="icon" aria-hidden="true" />
+      }
+      <span>{{ label }}</span>
+    </button>
+  }
+</header>
