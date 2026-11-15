@@ -1,4 +1,5 @@
 import {
+  matAddRound,
   matArrowForwardRound,
   matCloseRound,
   matMenuRound,
@@ -10,6 +11,7 @@ import {
     possa carregar em app.config.ts
 */
 export const ICONS = {
+  matAddRound,
   matArrowForwardRound,
   matCloseRound,
   matMenuRound,
