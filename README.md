@@ -56,6 +56,51 @@ Quando o servidor estiver rodando, pode usar qualquer browser para navegar para 
 
 Quando sua branch estiver pronta, seja por terminar de consertar um bug, terminar uma feature, etc use um [Pull Request](https://github.com/univali-proj/univali-proj-web/pulls) para pedir integração com a branch principal. Isso garante que a branch principal não receba várias mudanças de uma só vez.
 
+## Produção e Vercel
+
+O comando `npm run build` usa a configuração `production` por padrão. O Angular substitui
+`src/env/environment.local.ts` por `src/env/environment.prod.ts` durante esse build.
+Importe sempre o ambiente local no código; não é necessário detectar o domínio em tempo de execução.
+O comando `npm start` continua usando o ambiente de desenvolvimento.
+
+O arquivo `vercel.json` define o build de produção, a pasta de saída
+`dist/univali-proj-web/browser` e o fallback para `index.html`, permitindo acessar rotas da SPA diretamente.
+As configurações de ambiente são incorporadas ao JavaScript público durante o build: não inclua segredos.
+A API de produção usa HTTPS para evitar bloqueio por conteúdo misto em páginas HTTPS.
+
+### Requisições HTTP
+
+O `HttpClient` está registrado globalmente. Injete `ApiService`, disponível em
+`src/app/core/http/api.service.ts`, para requisições JSON com `get`, `post`, `put`, `patch` e `delete`.
+Os métodos aceitam opções de cabeçalhos, parâmetros de consulta, contexto HTTP e credenciais.
+
+```typescript
+import { inject } from '@angular/core';
+import { ApiService } from './core/http/api.service';
+
+interface Product {
+  id: number;
+  name: string;
+}
+
+// Dentro de um componente ou serviço:
+private readonly api = inject(ApiService);
+
+loadProducts(): void {
+  this.api.get<Product[]>('/products', { params: { page: 1 } }).subscribe({
+    next: (products) => console.log('Produtos carregados:', products),
+    error: (error: unknown) => console.error('Erro ao carregar produtos:', error)
+  });
+}
+```
+
+`buildApiUrl` une a URL base, o prefixo e o endpoint, normalizando as barras nas junções.
+Assim, `/products`, `products` e `///products///` geram a mesma URL.
+Passe endpoints relativos à API, não URLs absolutas. Para consultas, prefira a opção `params`.
+No ambiente de produção, o resultado é `https://confitto-api.vercel.app/api/v1/products`.
+O serviço retorna o `Observable` sem fazer `subscribe`, tratar erros ou tentar novamente;
+o chamador controla `next`, `error` e os operadores RxJS.
+
 ## Documentação
 
 A paleta fica em `tailwind.config.js`, carregada pelo CSS global com `@config`.

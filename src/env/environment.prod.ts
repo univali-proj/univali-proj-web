@@ -1,6 +1,6 @@
 export const environment = {
     production: true,
-    apiBaseUrl: '', // Substituir com o URL da API em produção
-    apiPrefix: '/api',
-    contactNumber: '5547999999999'
+    apiBaseUrl: 'https://confitto-api.vercel.app',
+    apiPrefix: '/api/v1',
+    contactNumber: '5547999999999' // Adicionar número de contato correto em produção
 };
